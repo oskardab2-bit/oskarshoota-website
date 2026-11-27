@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>oskarshoota – Producer & Engineer</title>
+<meta name="description" content="oskarshoota – Producer & Engineer aus Dortmund. Studio Sessions, Mix & Master, Podcast-Aufnahmen und Beats. 1,5 Mio+ Streams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: confident studio portfolio, clean like mixedbywewer, almost all white
+   IDEA: a record crate – the work (covers) does the talking
+   PICTURE: a slow belt of real release covers under the name
+   COLOUR and TYPE: white + near-black, Adlipz green used sparingly (dots, katakana, prices, focus); Archivo + Inter
+   LAYOUT: sticky nav, name + belt, references grid, beats, price cards, contact, imprint */
+:root{color-scheme:light dark;
+ --bg:light-dark(#ffffff,#0b0c0b);--soft:light-dark(#f5f6f4,#151715);--ink:light-dark(#111312,#f1f3f1);
+ --mute:light-dark(#686d69,#9aa19b);--line:light-dark(#e8eae7,#262926);
+ --neon:#39ff14;--g:light-dark(#178f00,#39ff14);--gbg:light-dark(#effde9,#10240b)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:Archivo,Inter,system-ui,sans-serif;margin:0;line-height:1.05;text-wrap:balance}
+h2{font-size:clamp(32px,4.4vw,48px);font-weight:800;letter-spacing:-.02em}
+h3{font-size:19px;font-weight:700}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(48px,7vw,96px) max(5vw,16px)}
+.lead{color:var(--mute);max-width:60ch;margin:12px 0 0}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--neon);box-shadow:0 0 0 3px color-mix(in srgb,var(--neon) 22%,transparent)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;padding:12px max(5vw,16px);flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:9px;font:800 20px Archivo,sans-serif;text-decoration:none;letter-spacing:-.02em}
+.links{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.links a{text-decoration:none;font-size:15px;font-weight:500;padding:10px 12px;border-radius:999px;color:var(--mute)}
+.links a:hover{color:var(--ink);background:var(--soft)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;font:600 15px Inter,sans-serif;text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer;white-space:nowrap;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(0,0,0,.16)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.green{background:var(--neon);border-color:var(--neon);color:#0b1a06}
+:focus-visible{outline:3px solid var(--neon);outline-offset:2px}
+
+/* hero */
+.hero{padding:clamp(48px,8vw,110px) max(5vw,16px) 0;text-align:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:var(--mute);padding:8px 16px;border:1px solid var(--line);border-radius:999px}
+.hero h1{font-size:clamp(56px,13vw,156px);font-weight:800;letter-spacing:-.045em;margin-top:22px}
+.kana{font:700 clamp(18px,2.4vw,26px) "Noto Sans JP",sans-serif;color:var(--g);letter-spacing:.3em;margin-top:8px}
+.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 28px;margin:26px auto 0;color:var(--mute);font-size:15px}
+.stats b{color:var(--ink);font-weight:600}
+.cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.belt{margin-top:clamp(40px,6vw,72px);overflow:hidden;padding:18px 0 50px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.belt .track{display:flex;gap:18px;width:max-content;animation:belt 60s linear infinite}
+.belt img{width:clamp(150px,17vw,220px);aspect-ratio:1;border-radius:14px;object-fit:cover;box-shadow:0 18px 40px -18px rgba(0,0,0,.45);background:var(--soft)}
+.belt img:nth-child(even){transform:translateY(22px)}
+@keyframes belt{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.belt .track{animation:none}html{scroll-behavior:auto}}
+
+/* refs */
+.head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:26px 20px}
+.card{text-decoration:none;display:block}
+.card img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:14px;display:block;background:var(--soft);transition:transform .2s,box-shadow .2s}
+.card:hover img{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.card h3{font-size:17px;margin-top:12px;overflow-wrap:anywhere}
+.card p{margin:3px 0 0;color:var(--mute);font-size:14px}
+.tag{display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:var(--g);background:var(--gbg);padding:3px 10px;border-radius:999px}
+.more{display:flex;justify-content:center;margin-top:36px}
+.names{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 30px;margin-top:56px;padding-top:36px;border-top:1px solid var(--line);font:700 clamp(18px,2.3vw,26px) Archivo,sans-serif;color:var(--mute)}
+.names span:hover{color:var(--ink)}
+.note{font-size:13px;color:var(--mute);margin-top:18px;text-align:center}
+
+/* beats */
+.soft{background:var(--soft)}
+.beats{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:20px}
+.beat{background:var(--bg);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.beat img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}
+.beat .in{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.beat h3{font-size:17px}
+.beat .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;flex-wrap:wrap}
+.price{font:800 22px Archivo,sans-serif;white-space:nowrap}
+.price small{font:500 13px Inter,sans-serif;color:var(--mute)}
+.mini{display:flex;gap:8px}
+.mini a{min-height:40px;padding:0 14px;font-size:14px}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px}
+.plan{border:1px solid var(--line);border-radius:22px;padding:28px 26px;display:flex;flex-direction:column;gap:14px;background:var(--bg)}
+.plan.hi{border-color:var(--ink);box-shadow:0 24px 50px -30px rgba(0,0,0,.45)}
+.plan .p{font:800 clamp(40px,5vw,52px) Archivo,sans-serif;letter-spacing:-.03em;line-height:1}
+.plan .p span{font:500 15px Inter,sans-serif;color:var(--mute);letter-spacing:0}
+.plan ul{list-style:none;padding:0;margin:0;display:grid;gap:9px;color:var(--mute);font-size:15px}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"";flex:none;width:7px;height:7px;margin-top:8px;border-radius:50%;background:var(--neon)}
+.plan .btn{margin-top:auto}.buy{margin-top:auto;display:grid;gap:6px}.buy .btn{width:100%}.ask{font-size:14px;color:var(--mute);text-align:center;padding:8px;min-height:36px}.ask:hover{color:var(--ink)}
+.sub{margin:56px 0 22px;font-size:24px}
+.extra{margin-top:26px;color:var(--mute);font-size:15px;text-align:center}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.mail{font:800 clamp(20px,2.6vw,32px) Archivo,sans-serif;letter-spacing:-.02em;overflow-wrap:anywhere;text-decoration:none;display:inline-block;margin-top:20px}
+.mail:hover{color:var(--g)}
+.ch{display:grid;gap:10px;margin-top:26px}
+.ch a,.ch div{display:flex;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:16px}
+.ch span{color:var(--mute)}
+form{background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,32px);display:grid;gap:14px}
+label{font-size:14px;font-weight:600;display:grid;gap:6px}
+input,select,textarea{font:16px Inter,sans-serif;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-height:46px;width:100%}
+textarea{min-height:110px;resize:vertical}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.out{display:none;gap:10px;padding:16px;border-radius:14px;background:var(--gbg)}
+.out.on{display:grid}
+.out p{margin:0;font-size:14px}
+.out .cta{justify-content:flex-start;margin:0}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,72px);align-items:start}
+.about .ph{border-radius:22px;width:100%;height:auto;aspect-ratio:894/1036;object-fit:cover;display:block;box-shadow:0 30px 60px -36px rgba(0,0,0,.6)}
+.about p{margin:16px 0 0;max-width:62ch}
+.vals{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+.vals li{display:flex;gap:12px}
+.vals li::before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--neon)}
+.quote{font:700 clamp(19px,2vw,23px)/1.3 Archivo,sans-serif;margin-top:24px!important;padding-left:16px;border-left:3px solid var(--neon)}
+.gear{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px;margin-top:22px}
+.gear div{border:1px solid var(--line);border-radius:18px;padding:20px}
+.gear p{color:var(--mute);font-size:15px;margin:8px 0 0}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));gap:18px;margin-top:22px}
+.certs button{all:unset;cursor:pointer;display:block;border-radius:14px}
+.certs img{width:100%;height:auto;aspect-ratio:1024/1449;object-fit:cover;border-radius:12px;border:1px solid var(--line);display:block;transition:transform .2s}
+.certs button:hover img{transform:translateY(-4px)}
+.certs b{display:block;margin-top:10px;font-size:15px}.certs small{color:var(--mute);font-size:13px}
+dialog{border:0;border-radius:18px;padding:0;max-width:min(92vw,620px);background:var(--bg)}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog img{display:block;width:100%;height:auto}
+dialog form{all:unset;display:flex;justify-content:flex-end;padding:10px}
+@media(max-width:760px){.about{grid-template-columns:1fr}.about .ph{max-height:460px}}
+footer{border-top:1px solid var(--line);padding:40px max(5vw,16px);font-size:14px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer h3{font-size:15px;color:var(--ink);margin-bottom:8px}
+footer p{margin:0}
+@media(max-width:760px){.contact{grid-template-columns:1fr}}
+@media(max-width:600px){.two{grid-template-columns:1fr}nav .btn{display:none}.links{margin:0;width:100%;justify-content:space-between;gap:0}.links a{padding:10px 8px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}.card h3{font-size:15px}}
+</style>
+</head>
+<body>
+<nav>
+ <div class="wrap">
+  <a class="logo" href="#top"><span class="dot"></span>oskarshoota</a>
+  <div class="links">
+   <a href="#referenzen">Referenzen</a><a href="#ueber-mich">Über mich</a><a href="#beats">Beats</a><a href="#preise">Preise</a><a href="#kontakt">Kontakt</a>
+  </div>
+  <a class="btn" href="#kontakt">Session buchen</a>
+ </div>
+</nav>
+
+<header class="hero" id="top">
+ <span class="kicker"><span class="dot"></span>Producer &amp; Engineer · Dortmund</span>
+ <h1>oskarshoota</h1>
+ <div class="kana" aria-hidden="true">オスカシュタ</div>
+ <div class="stats"><span><b>1,5 Mio+</b> Streams</span><span><b>Recording</b></span><span><b>Mix &amp; Master</b></span><span><b>Beats</b></span><span><b>Podcasts</b></span></div>
+ <div class="cta">
+  <a class="btn" href="#preise">Preise ansehen</a>
+  <a class="btn ghost" href="#referenzen">Referenzen hören</a>
+ </div>
+ <div class="belt" aria-hidden="true"><div class="track" id="belt"></div></div>
+</header>
+
+<section class="band" id="referenzen">
+ <div class="wrap">
+  <div class="head">
+   <div><h2>Referenzen</h2><p class="lead">Mix, Master, Recording und Produktion by oskarshoota. Direkt aus meiner Spotify-Playlist.</p></div>
+   <a class="btn ghost" id="plLink" href="https://open.spotify.com/playlist/5U6D11LRlH7k8QjRR3xY4q">Playlist auf Spotify</a>
+  </div>
+  <div class="grid" id="refs"></div>
+  <div class="more"><button class="btn ghost" id="moreBtn" type="button" hidden>Mehr anzeigen</button></div>
+  <div class="names" id="names"></div>
+ </div>
+</section>
+
+<section class="band soft" id="ueber-mich">
+ <div class="wrap">
+  <div class="about">
+   <img class="ph" src="about/studio.jpg" alt="Oskar im Studio am Mischpult" loading="lazy" width="894" height="1036">
+   <div>
+    <h2>Über mich</h2>
+    <p>Ich bin Oskar Dabrowski, als Producer und Engineer kennt man mich als oskarshoota. Mit meinem eigenen Studio in Dortmund habe ich einen Raum für Künstler geschaffen, an dem junge Talente und erfahrene Musiker gleichermaßen eine Stimme bekommen. Hier soll Kreativität frei entstehen und Musik ohne Druck wachsen können.</p>
+    <p>Das Studio kannst du für komplette Musiksessions, einzelne Recording-Termine oder entspannte Schreibsessions buchen. Du entscheidest, ob du mit mir als Engineer arbeitest oder lieber komplett unabhängig auf deine eigene Art aufnimmst. Mir ist wichtig, dass jeder, der reinkommt, nicht nur eine Aufnahmemöglichkeit findet, sondern eine Wohlfühloase: ein Ort zum Abschalten, Inspirieren und um ohne Stress das volle Potenzial zu zeigen.</p>
+    <ul class="vals">
+     <li>Jungen Leuten aus meiner Umgebung die Chance geben, ihre ersten Schritte im Musikgame zu machen.</li>
+     <li>Denen, die schon lange im Game sind, eine professionelle Atmosphäre bieten, um ihre Projekte aufs nächste Level zu bringen.</li>
+     <li>Eine Community aufbauen: ein Treffpunkt, an dem man sich austauscht, voneinander lernt und zusammen wächst.</li>
+     <li>Fairness, Support, Respekt und Leidenschaft, Werte, die mir persönlich viel bedeuten.</li>
+    </ul>
+    <p class="quote">Ich glaube, dass jeder eine Chance verdient, und genau diese Chance biete ich mit meinem Studio.</p>
+   </div>
+  </div>
+
+  <h3 class="sub">Equipment</h3>
+  <div class="gear">
+   <div><h3>Neumann TLM 102</h3><p>Großmembran-Kondensatormikrofon mit offenem, modernem Klang. Stimmen wirken luftig, detailreich und trotzdem warm.</p></div>
+   <div><h3>Universal Audio Apollo Twin</h3><p>Unison™-Preamps für warmen, detailreichen Sound und UAD-Plugins in Echtzeit, latenzfrei schon während der Aufnahme.</p></div>
+   <div><h3>Plugins &amp; VSTs</h3><p>Profi-Software von Waves, Slate Digital, HOFA-College und Universal Audio, dazu eine große Auswahl an VST-Instrumenten.</p></div>
+  </div>
+
+  <h3 class="sub">Ausbildung</h3>
+  <p class="lead" style="margin-top:-10px">Staatlich zertifizierte Fernkurse am HOFA-College für Tontechnik und Musikproduktion.</p>
+  <div class="certs" id="certs"></div>
+ </div>
+</section>
+<dialog id="zoom"><img id="zoomImg" alt=""><form method="dialog"><button class="btn ghost">Schließen</button></form></dialog>
+
+<section class="band" id="beats">
+ <div class="wrap">
+  <div class="head">
+   <div><h2>Beats</h2><p class="lead">Type Beats von Hood Trap bis Afro. „Kaufen“ = Normal License (mp3) für 20 € per PayPal. Gib bei der Zahlung den Beat-Namen an, Datei und Lizenz bekommst du dann von mir. Full License und Exklusiv auf Anfrage.</p></div>
+   <a class="btn ghost" href="https://www.youtube.com/@oskarshoota/videos">Alle Beats auf YouTube</a>
+  </div>
+  <div class="beats" id="beatList"></div>
+ </div>
+</section>
+
+<section class="band soft" id="preise">
+ <div class="wrap">
+  <div class="head"><div><h2>Preise</h2><p class="lead">Direkt per PayPal bezahlen. Bei Studio Sessions und Podcast schreibst du mir nach der Zahlung per WhatsApp deinen Wunschtermin, bei Mix &amp; Master schickst du mir deine Spuren.</p></div></div>
+  <h3 class="sub" style="margin-top:0">Studio Sessions</h3>
+  <div class="plans" id="sessions"></div>
+  <h3 class="sub">Services</h3>
+  <div class="plans" id="services"></div>
+  <p class="extra">EP- und Album-Pakete auf Anfrage.</p>
+ </div>
+</section>
+
+<section class="band" id="kontakt">
+ <div class="wrap contact">
+  <div>
+   <h2>Bereit für deinen nächsten Release?</h2>
+   <p class="lead">Schreib mir kurz, was du vorhast. Ich melde mich mit einem Termin.</p>
+   <a class="mail" href="mailto:Tontechnikdabrowski@gmail.com">Tontechnikdabrowski@gmail.com</a>
+   <div class="ch">
+    <a href="https://wa.me/4917632614165"><b>WhatsApp / Telefon</b><span>+49 176 32614165</span></a>
+    <a href="https://instagram.com/oskarshoota"><b>Instagram</b><span>@oskarshoota</span></a>
+    <a href="https://www.youtube.com/@oskarshoota"><b>YouTube</b><span>@oskarshoota</span></a>
+    <div><b>Studio</b><span>Idastraße 8, 44388 Dortmund</span></div>
+   </div>
+  </div>
+  <form id="book" novalidate>
+   <h3>Anfrage</h3>
+   <div class="two">
+    <label>Name / Artist<input id="fName" required autocomplete="name"></label>
+    <label>Wunschtermin<input id="fDate" type="date"></label>
+   </div>
+   <label>Service<select id="fService"></select></label>
+   <label>Nachricht<textarea id="fMsg" placeholder="Was planst du? Links zu Demos, Anzahl Tracks …"></textarea></label>
+   <button class="btn green" type="submit">Anfrage vorbereiten</button>
+   <div class="out" id="out" aria-live="polite">
+    <p id="outTxt"></p>
+    <div class="cta"><a class="btn" id="outWa" href="#">Per WhatsApp senden</a><a class="btn ghost" id="outMail" href="#">Per E-Mail</a><button class="btn ghost" type="button" id="outCopy">Text kopieren</button></div>
+   </div>
+  </form>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div><h3>Impressum</h3><p>Tontechnik Dabrowski · Oskar Dabrowski<br>Idastraße 8, 44388 Dortmund<br>Tontechnikdabrowski@gmail.com · +49 176 32614165</p></div>
+  <div><h3>oskarshoota</h3><p>Producer &amp; Engineer aus NRW<br>© 2026 Tontechnik Dabrowski</p></div>
+ </div>
+</footer>
+
+<script>
+{
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const WA='4917632614165',MAIL='Tontechnikdabrowski@gmail.com';
+const wa=t=>'https://wa.me/'+WA+'?text='+encodeURIComponent(t);
+const pp=a=>'https://www.paypal.com/paypalme/Oskar44388/'+a+'EUR';
+const mail=(s,t)=>'mailto:'+MAIL+'?subject='+encodeURIComponent(s)+'&body='+encodeURIComponent(t);
+
+const sessions=[
+ {n:'3 Stunden',p:100,f:['3 Std. Studiozeit','Recording mit Engineer','Studio in Dortmund'],o:'Studio Session 3 Stunden – 100 €'},
+ {n:'6 Stunden',p:185,f:['6 Std. Studiozeit','Recording mit Engineer','Studio in Dortmund'],hi:1,o:'Studio Session 6 Stunden – 185 €'},
+ {n:'9 Stunden',p:250,f:['9 Std. Studiozeit','Recording mit Engineer','Studio in Dortmund'],o:'Studio Session 9 Stunden – 250 €'}];
+const services=[
+ {n:'Mix & Master',p:100,u:'/ Track',f:['Vollständiger Mix','Stereo Mastering'],o:'Mix & Master – 100 € / Track'},
+ {n:'Podcast',p:100,u:'',f:['Ton- & Videoaufnahme','4 Std. Aufnahmezeit inkl. Location','Sony a6400, Mikros von Neumann & Universal Audio','Mobil gegen Aufpreis'],o:'Podcast – 100 €'},
+ {n:'Beats',p:20,u:'ab',f:['Normal License (mp3)','Full License','Exklusiv auf Anfrage'],link:'#beats',lt:'Beats ansehen'},
+ {n:'Adlipz Plugin',p:19,u:'',f:['Adlib Rack, Reverse-Delay- & Reverse-Reverb-Riser','VST3 für Windows & Mac'],link:'https://oskardab.gumroad.com/l/uyzoij',lt:'Auf Gumroad kaufen'}];
+const beats=[
+ {id:'1idfAXSg4TI',t:'Sampagne Type Beat – „365“'},
+ {id:'7HkOQiWDvoI',t:'Azet x Dardan Type Beat – „Joga Bonito“'},
+ {id:'gfKv2TBMo3Y',t:'Makko Type Beat – „Ohne Dich“'},
+ {id:'VdUY7wLOW5I',t:'C4rl x Yungpalo Type Beat – „Poser“'},
+ {id:'ZvBTj_SvRoU',t:'Lucki Type Beat – „humble“'},
+ {id:'aUiBYLatuAU',t:'Yung Palo Type Beat – „ALLES“'}];
+
+const plan=(x,kind)=>{
+ const label=kind+': '+x.n+' ('+x.p+' €)';
+ const txt='Hi Oskar, ich interessiere mich für '+label+'.';
+ const pre=x.u==='ab'?'<span>ab </span>':'';
+ const post=x.u&&x.u!=='ab'?' <span>'+esc(x.u)+'</span>':'';
+ return `<div class="plan${x.hi?' hi':''}"><h3>${esc(x.n)}</h3><div class="p">${pre}${x.p} €${post}</div>
+ ${kind==='Studio Session'?`<span class="tag">≈ ${Math.round(x.p/parseInt(x.n))} € pro Stunde</span>`:''}
+ <ul>${x.f.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>
+ ${x.link?`<a class="btn ghost" href="${esc(x.link)}">${esc(x.lt)}</a>`:`<div class="buy"><a class="btn${x.hi?' green':''}" href="${esc(pp(x.p))}">Jetzt kaufen · ${x.p} €</a><a class="ask" href="${esc(wa(txt))}" data-svc="${esc(x.o)}">Erst Fragen stellen</a></div>`}</div>`};
+document.getElementById('sessions').innerHTML=sessions.map(s=>plan(s,'Studio Session')).join('');
+document.getElementById('services').innerHTML=services.map(s=>plan(s,'Service')).join('');
+
+document.getElementById('beatList').innerHTML=beats.map(b=>`<article class="beat"><img src="beats/${esc(b.id)}.jpg" alt="" loading="lazy" width="320" height="180">
+ <div class="in"><h3>${esc(b.t)}</h3><div class="row"><div class="price">20 €</div>
+ <div class="mini"><a class="btn ghost" href="https://www.youtube.com/watch?v=${esc(b.id)}">Anhören</a><a class="btn" href="${esc(pp(20))}">Kaufen</a></div></div></div></article>`).join('');
+
+const sel=document.getElementById('fService');
+sel.innerHTML=[...sessions.map(s=>s.o),'Mix & Master – 100 € / Track','Podcast – 100 €','Beat-Lizenz – ab 20 €','EP / Album-Paket','Sonstiges'].map(o=>`<option>${esc(o)}</option>`).join('');
+document.addEventListener('click',e=>{const a=e.target.closest('[data-svc]');if(!a)return;e.preventDefault();
+ sel.value=a.dataset.svc;
+ document.getElementById('kontakt').scrollIntoView();document.getElementById('fName').focus({preventScroll:true})});
+
+const out=document.getElementById('out');let msg='';
+document.getElementById('book').addEventListener('submit',e=>{e.preventDefault();
+ const n=document.getElementById('fName').value.trim(),d=document.getElementById('fDate').value,m=document.getElementById('fMsg').value.trim();
+ if(!n){document.getElementById('fName').focus();return}
+ const dt=d?new Date(d+'T12:00').toLocaleDateString('de-DE'):'flexibel';
+ msg=`Hi Oskar,\n\nAnfrage von: ${n}\nService: ${sel.value}\nWunschtermin: ${dt}\n\n${m}`;
+ document.getElementById('outTxt').textContent='Deine Nachricht ist fertig. Schick sie per WhatsApp oder E-Mail ab.';
+ document.getElementById('outWa').href=wa(msg);document.getElementById('outMail').href=mail('Anfrage: '+sel.value,msg);
+ out.classList.add('on')});
+document.getElementById('outCopy').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(msg);e.target.textContent='Kopiert'}catch(_){e.target.textContent='Kopieren nicht möglich'}});
+
+const certs=[['cert1','Einstieg in die digitale Audioproduktion','HOFA-College'],['cert2','Sound Design','HOFA-College'],['cert3','Audio Assistant','HOFA-College'],['cert4','Audio Engineer','HOFA-College']];
+document.getElementById('certs').innerHTML=certs.map(c=>`<button type="button" data-z="about/${c[0]}.jpg" aria-label="Zertifikat ${esc(c[1])} vergrößern"><img src="about/${c[0]}.jpg" alt="HOFA-College Zertifikat ${esc(c[1])}" loading="lazy" width="565" height="800"><b>${esc(c[1])}</b><small>${esc(c[2])}</small></button>`).join('');
+const zoom=document.getElementById('zoom');
+document.getElementById('certs').addEventListener('click',e=>{const b=e.target.closest('[data-z]');if(!b)return;document.getElementById('zoomImg').src=b.dataset.z;try{zoom.showModal()}catch(_){}});
+zoom.addEventListener('click',e=>{if(e.target===zoom)zoom.close()});
+
+const refsEl=document.getElementById('refs'),moreBtn=document.getElementById('moreBtn');
+let all=[],shown=8;
+const drawRefs=()=>{refsEl.innerHTML=all.slice(0,shown).map(r=>`<a class="card" href="${esc(r.url)}"><img src="${esc(r.cover)}" alt="Cover ${esc(r.title)}" loading="lazy" width="360" height="360"><h3>${esc(r.title)}</h3><p>${esc(r.artists)}</p></a>`).join('');
+ moreBtn.hidden=shown>=all.length};
+moreBtn.addEventListener('click',()=>{shown=all.length;drawRefs()});
+fetch('refs.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+ all=d.tracks||[];drawRefs();
+ const imgs=all.map(r=>`<img src="${esc(r.cover)}" alt="">`).join('');
+ document.getElementById('belt').innerHTML=imgs+imgs;
+ const seen=new Set();all.forEach(r=>r.artists.split(/,\s*/).forEach(a=>seen.add(a.trim())));
+ document.getElementById('names').innerHTML=[...seen].map(a=>`<span>${esc(a)}</span>`).join('');
+}).catch(()=>{refsEl.innerHTML='<p class="lead">Referenzen konnten nicht geladen werden. <a href="https://open.spotify.com/playlist/5U6D11LRlH7k8QjRR3xY4q">Zur Playlist</a></p>'});
+}
+</script>
+</body>
+</html>
